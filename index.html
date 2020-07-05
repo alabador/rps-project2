@@ -18,6 +18,7 @@
                 return lower.charAt(0).toUpperCase() + lower.slice(1);
             }
 
+
             function playRound(playerSelection, computerSelection) {
                 if (capitalize(playerSelection) === capitalize(computerSelection)) {
                     return "It's a tie, the computer picked" + " " + capitalize(computerSelection) + "." + " Play again!";  
@@ -37,6 +38,13 @@
                     return "Choose either rock, paper, or scissors.";
                 } 
             }
+
+            function score() {
+                let wins = 0;
+                let result = playRound(prompt("Rock, Paper, or Scissors?"), computerPlay());
+                  
+            }
+
 
             function game() { 
               
