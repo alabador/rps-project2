@@ -7,6 +7,8 @@
     <body>
         <script>
             let possible = ['Rock', 'Paper', 'Scissors'];
+            let wins = 0; 
+            let computerWins = 0; 
 
             function computerPlay() {
                 return possible[Math.floor(Math.random()*possible.length)]
@@ -39,9 +41,7 @@
                 } 
             }
 
-            function score() {
-                let wins = 0;
-                let computerWins = 0; 
+            function score() { 
                 let result = playRound(prompt("Rock, Paper, or Scissors?"), computerPlay());
                 
                 if (result.includes('win')) {
