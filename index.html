@@ -10,17 +10,18 @@
             let wins = 0; 
             let computerWins = 0; 
 
+            //Function to randomly choose from array 'possible'
             function computerPlay() {
                 return possible[Math.floor(Math.random()*possible.length)]
             }
 
-
+            //Function that allows any capitalization to work as input
             function capitalize(string) {
                 let lower = string.toLowerCase(); 
                 return lower.charAt(0).toUpperCase() + lower.slice(1);
             }
 
-
+            //Function that checks win condition based off of player input and computer
             function playRound(playerSelection, computerSelection) {
                 if (capitalize(playerSelection) === capitalize(computerSelection)) {
                     return "It's a tie, the computer picked" + " " + capitalize(computerSelection) + "." + " Play again!";  
@@ -41,6 +42,7 @@
                 } 
             }
 
+            //Function that prompts user input, as well as adds one point to winner.
             function score() { 
                 let result = playRound(prompt("Rock, Paper, or Scissors?"), computerPlay());
                 
@@ -49,13 +51,40 @@
                 }  else if (result.includes('lose')) {
                     ++computerWins; 
                 }
-                
-                alert(result + " " + "Your score:" + wins + "." + " Computer's score:" + computerWins); 
+                let finish = result + " " + "Your score:" + wins + "." + " Computer's score:" + computerWins;
+                alert(finish); 
             }
             
 
             function game() { 
-              
+              //resets the game to 0 each time;
+              wins = 0;
+              computerWins = 0;
+              gamesRun = 0;  
+              score();
+              score();
+              score();
+              score();
+              score();
+
+              if (wins >= 3) {
+                    alert("Congratulations, you won the game! Your score:" + wins + "." + " Computer's score:" + computerWins);
+                    return; 
+              } else if (computerWins >= 3) {
+                    alert("You lost the game. Try again! Your score:" + wins + "." + " Computer's score:" + computerWins);
+                    return;
+              } else if (wins > computerWins) {
+                    alert("Congratulations, you won the game! Your score:" + wins + "." + " Computer's score:" + computerWins);
+                    return;
+              } else if (computerWins > wins) {
+                    alert("You lost the game. Try again! Your score:" + wins + "." + " Computer's score:" + computerWins);
+                    return; 
+              } else {
+                    alert("It's a draw. Your score:" + wins + "." + " Computer's score:" + computerWins);
+                    return; 
+              }
+
+
             }
 
         </script>
