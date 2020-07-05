@@ -41,10 +41,18 @@
 
             function score() {
                 let wins = 0;
+                let computerWins = 0; 
                 let result = playRound(prompt("Rock, Paper, or Scissors?"), computerPlay());
-                  
+                
+                if (result.includes('win')) {
+                    ++wins; 
+                }  else if (result.includes('lose')) {
+                    ++computerWins; 
+                }
+                
+                alert(result + " " + "Your score:" + wins + "." + " Computer's score:" + computerWins); 
             }
-
+            
 
             function game() { 
               
